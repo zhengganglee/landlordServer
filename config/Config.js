@@ -21,6 +21,6 @@ module.exports = {
         port: 3306,
         database : 'landlord',
         user : 'root',
-        password : 'abc123',
+        password : 'ak80123',
     },
 }
