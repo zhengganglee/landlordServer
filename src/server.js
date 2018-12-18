@@ -19,6 +19,16 @@ server.listen(8081, function() {
 	console.log('斗地主服务开启，端口8081');
 });
 
+
+//未捕获异常输出
+process.on('uncaughtException', (err) => {
+	console.log(`Caught exception: ${err}\n`);
+});
+setInterval(() => {
+    console.log(new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')+' This will still run.');
+}, 60000);
+
+
 var handler = {
 	someOneExit: function(player, socket){
 		var self = this,
