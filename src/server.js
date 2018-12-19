@@ -25,7 +25,14 @@ process.on('uncaughtException', (err) => {
 	console.log(`Caught exception: ${err}\n`);
 });
 setInterval(() => {
-    console.log(new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')+' This will still run.');
+
+	var str="";
+    const used = process.memoryUsage();
+    for (let key in used) {
+        str+=`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100}MB, `;
+    }
+
+    console.log(new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')+' This will still run.  ' + str);
 }, 60000);
 
 
